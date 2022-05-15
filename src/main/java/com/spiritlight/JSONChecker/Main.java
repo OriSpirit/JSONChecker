@@ -24,10 +24,9 @@ public class Main {
                     System.out.println("Attempting to parse file " + it.getName());
                     JsonParser.parseString(TextFileReader.readTextFile(it));
                     System.out.println("Parse successful.");
-                } catch (Exception e) {
-                    System.out.println("Exception caught at " + e.getMessage());
-                    System.out.println("Error: " + e.getClass().getCanonicalName());
-                    System.out.println(Arrays.toString(e.getStackTrace()));
+                } catch (Exception ignored) {
+                    System.out.println("Failed to parse " + it.getName());
+                    System.out.println(ignored.getMessage());
                 }
             } else {
                 System.out.println("Ignoring " + (extension.equals("") ? "directory" : "file") + " " + it.getName());
